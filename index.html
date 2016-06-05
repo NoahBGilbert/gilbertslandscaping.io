@@ -1,0 +1,107 @@
+---
+layout: default
+bodyclass: home
+---
+
+<section id="about">
+    <div class="post">
+   {% if page.lang == 'en' %}
+    {% for post in site.posts %}
+        {% if post.permalink == "/about/" %}
+            <h1>{{ post.title }}</h1>
+            <hr class="double small">
+            <div>{{ post.content | split:"<!--more-->" | first | markdownify }}</div>
+            <ul class="index">
+                <li>
+                    <a href="{{ post.url }}">
+
+                    </a>
+                </li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+   {% else %}
+    {% for post in site.posts %}
+        {% if post.permalink == "/a-propos/" %}
+            <h1>{{ post.title }}</h1>
+            <hr class="double small">
+            <div>{{ post.content | split:"<!--more-->" | first | markdownify }}</div>
+            <ul class="index">
+                <li>
+                    <a href="{{ post.url }}">
+                        <h2 class="more"><span class="mega-octicon octicon-plus"></span></h2>
+
+                    </a>
+                </li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+   {% endif %}
+    </div>
+</section>
+
+<section id="services">
+    <div class="post">
+   {% if page.lang == 'en' %}
+    {% for post in site.posts %}
+        {% if post.permalink == "/services/" %}
+            <h1>{{ post.title }}</h1>
+            <hr class="double small">
+            <div>{{ post.content | split:"<!--more-->" | first | markdownify }}</div>
+
+            <ul class="index">
+                <li>
+                    <a href="{{ post.url }}#cssframework">
+                        <h2 class="more"><span class="mega-octicon octicon-plus"></span></h2>
+                
+                    </a>
+                </li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+   {% else %}
+    {% for post in site.posts %}
+        {% if post.permalink == "/projets/" %}
+            <h1>{{ post.title }}</h1>
+            <hr class="double small">
+            <div>{{ post.content | split:"<!--more-->" | first | markdownify }}</div>
+
+            <ul class="index">
+                <li>
+                    <a href="{{ post.url }}#cssframework">
+                        <h2 class="more"><span class="mega-octicon octicon-plus"></span></h2>
+                      
+                    </a>
+                </li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+   {% endif %}
+    </div>
+</section>
+
+
+<section id="blog">
+    <div>
+        <h1 style="margin-top:0;">Blog</h1>
+        <hr class="double small">
+
+        <ul class="index">
+            {% assign posts=site.posts | where:"lang", page.lang | where:"type", posts %}
+            {% for post in posts limit:10 %}
+            <li>
+            <a href="{{ post.url }}">
+                <h2>{{ post.title | replace: '<br>', '' }}</h2>
+                
+            </a>
+            </li>
+            {% endfor %}
+
+            <li>
+            <a href="/{% if page.lang == "en" %}en/{% endif %}archive">
+                <h2 class="more"><span class="mega-octicon octicon-plus"></span></h2>
+            </a>
+            </li>
+        </ul>
+    </div>
+</section>

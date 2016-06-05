@@ -1,0 +1,13 @@
+en:
+  about:
+    title: "About"
+    url:   "/about"
+  services:
+    title: "Services"
+    url:   "/services"
+  weblog:
+    title: "Reviews"
+    url:   "http://www.helparoundtown.com/users/2063"
+  contact:
+    title: "Contact Us"
+    url:   "/about#contact"
